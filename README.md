@@ -1,3 +1,11 @@
+Here is the login credentials for testing
+
+email: tubagus@mail.com
+password: 123123123
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
