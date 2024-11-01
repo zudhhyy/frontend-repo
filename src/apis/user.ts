@@ -4,7 +4,7 @@ import { User } from '@/store/slicers/userSlice';
 
 export const fetchUserData = async (userId: string) => {
   try {
-    const { data } = await axiosInstance.get(`/api/fetch-user-data/${userId}`);
+    const { data } = await axiosInstance.get(`/users/fetch-user-data/${userId}`);
 
     if (data.success) {
       return data.data;
@@ -12,8 +12,6 @@ export const fetchUserData = async (userId: string) => {
   } catch (error) {
     if (error instanceof Error) {
       if (axios.isAxiosError(error) && error.response) {
-        console.log(error.response.data.message);
-
         throw new Error(error.response.data.message);
       } else {
         throw new Error('Failed to fetch user data');
@@ -26,16 +24,14 @@ export const fetchUserData = async (userId: string) => {
 
 export const updateUserData = async (newDataUser: User) => {
   try {
-    const res = await axiosInstance.patch(`/api/update-user-data/${newDataUser.id}`, {
+    const res = await axiosInstance.patch(`/users/update-user-data/${newDataUser.id}`, {
       email: newDataUser.email,
       name: newDataUser.name,
       address: newDataUser.address,
     });
 
-    console.log(res.data.data);
-
     if (res.data.success) {
-      return res.data.data;
+      return newDataUser;
     } else {
       throw new Error('Failed to update user data');
     }

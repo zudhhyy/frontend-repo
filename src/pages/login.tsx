@@ -65,7 +65,15 @@ const Login = () => {
       >
         Login
       </Typography>
-      <TextField label="Email" name="email" value={userData.email} onChange={handleInputChange} fullWidth margin="normal" sx={{ mb: 2 }} />
+      <TextField
+        label="Email"
+        name="email"
+        value={userData.email}
+        onChange={handleInputChange}
+        fullWidth
+        margin="normal"
+        sx={{ mb: 2, maxWidth: 400 }}
+      />
       <TextField
         label="Password"
         name="password"
@@ -74,7 +82,7 @@ const Login = () => {
         onChange={handleInputChange}
         fullWidth
         margin="normal"
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, maxWidth: 400 }}
       />
       {error && (
         <Typography color="error" sx={{ mb: 2 }}>

@@ -71,9 +71,30 @@ const MainPage = () => {
 
         {!loading && (
           <Box sx={{ mt: 3 }}>
-            <TextField label="Email" name="email" value={newUserData.email} onChange={handleInputChange} margin="normal" />
-            <TextField label="Name" name="name" value={newUserData.name} onChange={handleInputChange} margin="normal" />
-            <TextField label="Address" name="address" value={newUserData.address} onChange={handleInputChange} margin="normal" />
+            <TextField
+              label="Email"
+              name="email"
+              value={newUserData.email}
+              onChange={handleInputChange}
+              margin="normal"
+              sx={{ width: { xs: 300, sm: 500, md: 700 } }}
+            />
+            <TextField
+              label="Name"
+              name="name"
+              value={newUserData.name}
+              onChange={handleInputChange}
+              margin="normal"
+              sx={{ width: { xs: 300, sm: 500, md: 700 } }}
+            />
+            <TextField
+              label="Address"
+              name="address"
+              value={newUserData.address}
+              onChange={handleInputChange}
+              margin="normal"
+              sx={{ width: { xs: 300, sm: 500, md: 700 } }}
+            />
 
             <UpdateButton newUserData={newUserData} />
           </Box>

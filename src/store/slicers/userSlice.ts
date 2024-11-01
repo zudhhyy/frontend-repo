@@ -43,7 +43,7 @@ export const loginUser = createAsyncThunk('user/loginUser', async ({ email, pass
     const idToken = await userCredential.user.getIdToken(true);
 
     if (idToken) {
-      const res = await axiosInstance.post('/api/login', { idToken });
+      const res = await axiosInstance.post('/users/login', { idToken });
 
       if (res.data.success) {
         return res.data.data;
@@ -122,10 +122,12 @@ const userSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(updateUser.fulfilled, (state, action: PayloadAction<User>) => {
+      .addCase(updateUser.fulfilled, (state, action: PayloadAction<User | undefined>) => {
         state.loading = false;
         state.error = null;
-        state.data = action.payload;
+        if (action.payload) {
+          state.data = action.payload;
+        }
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.loading = false;

@@ -4,7 +4,7 @@ import { store } from '@/store/store';
 import { logout } from '@/store/slicers/userSlice';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'http://127.0.0.1:5001/ebuddy-technical-test-1aac5/us-central1/api',
 });
 
 axiosInstance.interceptors.request.use(
